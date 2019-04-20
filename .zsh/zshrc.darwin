@@ -1,0 +1,40 @@
+#
+# $URL: file:///home/ryo/svn/zshconf/trunk/zshrc.darwin $
+# $Id: zshrc.darwin 10 2008-06-20 08:06:26Z ryo $
+
+echo "Loading $HOME/.zsh/zshrc.darwin"
+
+path=($path ~/bin /Applications /Developer/Applications/Utilities /Developer/Tools /System/Library/CoreServices/ ~/.nodebrew/current/bin ~/CyberDream/Documents/assets/ )
+
+# for MacPorts
+path=($path /opt/local/bin /opt/local/sbin)
+manpath=($manpath /opt/share/man /opt/local/share/man)
+
+# ls
+if [ -x /opt/local/bin/gls ]; then
+    alias ls='/opt/local/bin/gls --color'
+    function chpwd() { /opt/local/bin/gls --color -lF }
+fi
+
+# emacs
+if [ -e /Applications/Emacs.app ]; then
+    emacs='open -a Emacs.app'
+fi
+
+alias tf='tail -0 -F'
+
+# open with
+alias mi='open -a mi'
+alias jedit='open -a /Applications/Jedit\ X\ Folder/Jedit\ X.app'
+alias preview='open -a /Applications/Preview.app'
+alias gc='open -a /Applications/GraphicConverter'
+alias xcode='open -a /Developer/Applications/Xcode.app'
+
+#alias ee='/sw/bin/nano -w'
+alias fetch='wget -q'
+alias top='top -s 1 -o cpu'
+alias ipfw_ls='ipfw -at list'
+alias fcd='cd `fcd.sh`'
+
+alias delds="find . -name '.DS_Store' | xargs rm -f"
+

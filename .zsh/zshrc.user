@@ -1,0 +1,18 @@
+echo "Loading $HOME/.zsh/zshrc.user"
+
+autoload -U colors
+colors
+
+case ${UID} in
+0)
+    PROMPT="%{${fg[red]}%}%m:%n%{${reset_color}%} "
+    RPROMPT="[%~]"
+    SPROMPT="%{${fg[red]}%}CORRECT>%r (y|n|e|a)?%{${reset_color}%} " # 赤
+    ;;
+*)
+    PROMPT="%n%% "
+    RPROMPT="[%~]"
+    SPROMPT="%{${fg[red]}%}CORRECT>%r (y|n|e|a)?%{${reset_color}%} " # 赤
+    ;;
+esac
+
